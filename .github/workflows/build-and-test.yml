@@ -1,0 +1,25 @@
+name: build-and-test
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name : checkout branch
+        uses : actions/checkout@v3
+        
+      - name : setup jdk 
+        uses : actions/setup-java@v3
+
+      - name : build
+        run : |
+                chmod +x gradlew
+                ./gradlew build
+        
