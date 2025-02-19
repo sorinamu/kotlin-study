@@ -5,10 +5,13 @@ on:
     branches:
       - main
       - dev
+  workflow_dispatch:
 
 jobs:
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - name : test wf
-      - run : echo "hello"
+    test:
+      runs-on: ubuntu-latest 
+      steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v3
+        - name : test wf
+          run : echo "hello"
